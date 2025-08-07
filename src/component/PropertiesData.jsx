@@ -26,6 +26,18 @@ export const PropertiesData = () => {
                             <p>7500</p>
                         </div>
                     </div>
+                    <div>
+                        <div className='flex'>
+                            <span><MdCurrencyRupee className="mt-1 text-lg" /></span>
+                            <p>75000/month</p>
+                        </div>
+                        <div className='flex'>
+                            <span><IoIosAdd className="mt-1 me-2 text-lg" /></span>
+                            <p>Depo </p>
+                            <span><MdCurrencyRupee className='mt-1 text-lg' /></span>
+                            <p>7500</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
