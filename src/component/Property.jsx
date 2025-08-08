@@ -111,7 +111,7 @@ export const Property = () => {
   return (
     <section>
       <div className='flex justify-around'>
-        <div className='w-[30vw]'>
+        <div className='w-[26vw]'>
         <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
               <h5 className=" font-samibold leading-none text-gray-900 dark:text-white">Apply Filters</h5>
@@ -250,7 +250,7 @@ export const Property = () => {
           </div>
 
         </div>
-        <div className='w-[60vw]'>
+        <div className='w-[65vw]'>
           <div className='flex justify-between my-5'>
             <div>
               <Propertyfilterbutton propertyFilterButtonname={propertyFilterButton} />
