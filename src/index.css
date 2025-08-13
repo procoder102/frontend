@@ -68,7 +68,12 @@ h1 {
   line-height: 1.1;
 }
 
-
+.webkitFillAvailable{
+  width: -webkit-fill-available;
+}
+.webkitHeightFillAvailable{
+  height: -webkit-fill-available;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

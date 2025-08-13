@@ -32,17 +32,17 @@ export const PropertiesData = () => {
         <div className=''>
             {propertyData.map((item, index) => {
                 return (
-                    <div key={index} className="flex w-full  bg-white border border-gray-200 rounded-lg shadow-sm sm:p-2 dark:bg-gray-800 dark:border-gray-700 mt-5">
+                    <div key={index} className="flex w-full flex-col lg:flex-row  bg-white border border-gray-200 rounded-lg shadow-sm sm:p-2 dark:bg-gray-800 dark:border-gray-700 mt-5">
                         <div className=''>
                             {item.images.map((item, index) => {
                                 return (
                                     <div key={index}>
-                                        <img className='h-[21vw]' src={item.src} alt='' />
+                                        <img className='webkitFillAvailable lg:w-[36vw]  h-auto lg:h-[21vw]' src={item.src} alt='' />
                                     </div>
                                 )
                             })}
                         </div>
-                        <div className='w-[37vw] '>
+                        <div className='md:webkitFillAvailable lg:w-[36vw] '>
                             <div className="px-6">
                                 <h5 className='text-base font-bold' >{item.title}</h5>
                                 <h6 className='text-base font-samibold'>{item.bedroom} Flat for rent {item.location}</h6>

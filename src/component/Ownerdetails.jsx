@@ -23,7 +23,7 @@ const Ownerdetails = () => {
             }
           }}
         >
-          <div id="modal-overlay" className="flex items-end sm:h-screen justify-center text-center sm:block sm:p-0 bg-gray-500 bg-opacity-75">
+          <div id="modal-overlay" className="flex flex-col lg-flex-row webkitHeightFillAvailable items-end sm:h-screen justify-center text-center sm:block sm:p-0 bg-gray-500 bg-opacity-75">
             {/* This span helps center the modal */}
             <p className='font-bold text-white'>You are requesting to view advertiser details.</p>
             {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}

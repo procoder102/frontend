@@ -129,10 +129,24 @@ export const Property = () => {
     {name:'With Videoes'}
   ]
 
+  const MobilepropertyFileterButton = [
+    {name:'Budget'},
+    {name:'No of Bedrooms'},
+    {name:'Property Types'},
+    {name:'Availabe for'},
+    {name:'Posted by'},
+    {name:'furnishing status'},
+    {name:'Owner'},
+    {name:'Verified'},
+    {name:'Furnished'},
+    {name:'With Photos'},
+    {name:'With Videoes'}
+  ]
+
   return (
     <section>
-      <div className='flex justify-around'>
-        <div className='w-[25vw]'>
+      <div className='flex justify-around flex-col-reverse lg:flex-row'>
+        <div className='w-[25vw] size-fit lg:flex'>
         <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
               <h5 className=" font-samibold leading-none text-gray-900 dark:text-white">Apply Filters</h5>
@@ -293,10 +307,15 @@ export const Property = () => {
           </div>
 
         </div>
-        <div className='w-[70vw]'>
+        <div className='w-full lg:w-[70vw]'>
           <div className='flex justify-between my-5'>
-            <div>
-              <Propertyfilterbutton propertyFilterButtonname={propertyFilterButton} />
+            <div className='overscroll-none overflow-auto'>
+              <div className="hidden lg:block  lg:relative">
+              <Propertyfilterbutton   propertyFilterButtonname={propertyFilterButton} />
+              </div>
+              <div className='static lg:hidden'>
+              <Propertyfilterbutton   propertyFilterButtonname={MobilepropertyFileterButton} />
+              </div>
             </div>
             <div>
               <div className='flex w-[10vw] justify-around'>
