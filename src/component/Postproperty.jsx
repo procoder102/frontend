@@ -51,7 +51,7 @@ export const Postproperty = () => {
 
 
     const [propertyTypes,setPropertyTypes] = useState(sell)
-    const [selection, setSelection] = useState("commercial");
+    const [selection, setSelection] = useState("");
     const [lookSelection, setLookSelection] = useState("sell");
     const [itsType,setItsType] = useState('');
 
@@ -128,8 +128,6 @@ export const Postproperty = () => {
                                 )})}
                             </div>
                             <h4 className='font-semibold my-5'>Your Contact details for the buyer to reach you</h4>
-                                
-
                             <div className='flex justify-center w-auto'>
                                 <Login />
                             </div>

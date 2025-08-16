@@ -7,6 +7,7 @@ import { Checkfilter } from './Checkfilter';
 import { Propertyfilterbutton } from './Propertyfilterbutton';
 import { PropertiesData } from './PropertiesData';
 import { useRef } from 'react';
+import PropertyFilters from './Propertyfilter';
 export const Property = () => {
 
   const budgetRef = useRef(null);
@@ -145,186 +146,25 @@ export const Property = () => {
 
   return (
     <section>
-      <div className='flex justify-around flex-col-reverse lg:flex-row'>
-        <div className='w-[25vw] size-fit lg:flex'>
-        <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-            <div className="flex items-center justify-between mb-4">
-              <h5 className=" font-samibold leading-none text-gray-900 dark:text-white">Apply Filters</h5>
-              <a href="#" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                Clear all
-              </a>
-            </div>
-              <FilterButton btname="1bhk" />
-            <div className="flow-root">
-              <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
-                <li className="py-3 sm:py-4">
-                  <div className='flex justify-between'>
-                    <h3 className='font-samibold'>Hide already seen</h3>
-                   <label className="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" value="" className="sr-only peer" />
-                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
-                    </label>
-                  </div>
-                </li>
-                <li className="py-3 sm:py-4" >
-                  <div className='flex  justify-between cursor-pointer' onClick={() => handleToggle(budgetRef)}>
-                    <h3 className=''>Budget</h3>
-                      <GoChevronDown className={`mt-2 transition-transform duration-300`}/>
-                  </div>
-                  <div ref={budgetRef}>
-                    <Rangeslider />
-                  </div>
-                </li>
-                <li className="py-3 sm:py-4">
-                  <div className='flex  justify-between cursor-pointer' onClick={() => handleToggle(bedroom)}>
-                    <h3 className=''>No. of Bedrooms</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={bedroom}>
-                      <Addfilterbutton filterButtonname={noBedroom} />
-                  </div>
-                </li>
-                <li className="py-3 sm:py-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(propertytype)}>
-                    <h3 className=''>Type of property</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={propertytype}>
-                      <Addfilterbutton filterButtonname={propertyType} />
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between'  onClick={() => handleToggle(avalablefor)}>
-                    <h3 className=''>Available for</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={avalablefor}>
-                      <Addfilterbutton filterButtonname={availableFor} />
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={()=> handleToggle(postedby)}>
-                    <h3 className=''>Posted by</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={postedby}>
-                      <Addfilterbutton filterButtonname={postedBy} />
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(furnishingstatus)}>
-                    <h3 className=''>Furnishing status</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={furnishingstatus}>
-                      <Addfilterbutton filterButtonname={furnishingStatus} />
-                      </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(localiti)}>
-                    <h3 className=''>Localities</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={localiti}>
-                  <Checkfilter  checkItem={localtiesCheck} />
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(newproject)}>
-                    <h3 className=''>New Projects / Societies</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={newproject}>
-                  <Checkfilter  checkItem={projectSocities} />
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(bathroom)}>
-                    <h3 className=''>No. of bathrooms</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={bathroom}>
-                      <Addfilterbutton filterButtonname={noBathroom} />
-                      </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(anemate)}>
-                    <h3 className=''>Amenities</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={anemate}>
-                      <Addfilterbutton filterButtonname={amenitiesFilter} />
-                      </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between'>
-                    <h3 className=''>Properties with photos</h3>
-                      <label className="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" value="" className="sr-only peer" />
-                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
-                    </label>
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(area)}>
-                    <h3 className=''>Area</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={area}>
-                    <Rangeslider />
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(availblefrom)}>
-                    <h3 className=''>Available from</h3>
-                      <GoChevronDown className='mt-2'/>
-                      
-                  </div>
-                  <div ref={availblefrom}>
-                      <Addfilterbutton filterButtonname={availableFrom} />
-                      </div>
-                </li>
-                <li className="py-3 sm:py-4">
-                  <div className='flex justify-between'>
-                    <h3 className='font-samibold'>Verified properties</h3>
-                   <label className="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" value="" className="sr-only peer" />
-                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
-                    </label>
-                  </div>
-                </li>
-                <li className="py-3  sm:pt-4">
-                  <div className='flex  justify-between' onClick={() => handleToggle(ageofproperty)}>
-                    <h3 className=''>Age of Property</h3>
-                      <GoChevronDown className='mt-2'/>
-                  </div>
-                  <div ref={ageofproperty}>
-                      <Addfilterbutton filterButtonname={propertyAge} />
-                      </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
+      <div className='relative block lg:flex'>
+        
+        <PropertyFilters />
         <div className='w-full lg:w-[70vw]'>
-          <div className='flex justify-between my-5'>
-            <div className='overscroll-none overflow-auto'>
-              <div className="hidden lg:block  lg:relative">
-              <Propertyfilterbutton   propertyFilterButtonname={propertyFilterButton} />
-              </div>
-              <div className='static lg:hidden'>
-              <Propertyfilterbutton   propertyFilterButtonname={MobilepropertyFileterButton} />
-              </div>
-            </div>
-            <div>
-              <div className='flex w-[10vw] justify-around'>
-                <h5>Short By</h5>
-                <GoChevronDown className='mt-2'/>
-              </div>
-            </div>
-          </div>
+          
           <div className='overflow-auto'>
+            <div className='flex justify-between my-5 overflow-hidden'>
+                        <div className='overscroll-none overflow-auto'>
+                          <div className="hidden lg:block  lg:relative">
+                          <Propertyfilterbutton   propertyFilterButtonname={propertyFilterButton} />
+                          </div>
+                        </div>
+                        <div>
+                          <div className='flex w-[10vw] justify-around'>
+                            <h5>Short By</h5>
+                            <GoChevronDown className='mt-2'/>
+                          </div>
+                        </div>
+                      </div>
             <PropertiesData />
           </div>
         </div>
