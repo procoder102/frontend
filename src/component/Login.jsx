@@ -12,7 +12,7 @@ export const Login = () => {
     <>
         <div className="relative">
               {/* Button to trigger the modal */}
-               <button type='button' onClick={openModal} className='bg-blue-500 rounded-sm px-25 cursor-pointer my-2 py-2'>Start Now</button>
+               <button type='button' onClick={openModal} className='bg-[#011638] text-white font-bold text-xl rounded-sm px-25 cursor-pointer my-2 py-2'>Start Now</button>
         
               {/* Modal */}
               {isModalOpen && (
@@ -23,7 +23,7 @@ export const Login = () => {
                         <RxCross1 className='cursor-pointer' onClick={closeModal} />
                     </div>
                     {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
-                    <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg  my-15 sm:w-full">
+                    <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg  my-2 sm:w-full">
                       <div className="bg-white  pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div className="flex justify-center">
                         <h3 className='text-2xl font-semibold'>Login/Register</h3>

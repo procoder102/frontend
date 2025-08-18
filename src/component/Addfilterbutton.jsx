@@ -3,7 +3,6 @@ import React from 'react';
 
 export const Addfilterbutton = (props) => {
     
-    console.log(props.filterButtonname);
 
     let filterData = props.filterButtonname;
     
