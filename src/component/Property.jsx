@@ -7,7 +7,7 @@ import { Checkfilter } from './Checkfilter';
 import { Propertyfilterbutton } from './Propertyfilterbutton';
 import { PropertiesData } from './PropertiesData';
 import { useRef } from 'react';
-import PropertyFilters from './Propertyfilter';
+import Propertyfilter from './Propertyfilter';
 export const Property = () => {
 
   const budgetRef = useRef(null);
@@ -148,7 +148,7 @@ export const Property = () => {
     <section>
       <div className='relative block lg:flex'>
 
-        <PropertyFilters />
+        <Propertyfilter />
         <div className='w-full lg:w-[70vw]'>
 
           <div className='overflow-auto'>

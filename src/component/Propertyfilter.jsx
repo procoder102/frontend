@@ -7,7 +7,7 @@ import { Checkfilter } from './Checkfilter';
 import { Propertyfilterbutton } from './Propertyfilterbutton';
 import { PropertiesData } from './PropertiesData';
 
-export default function PropertyFilters() {
+export default function Propertyfilter() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const budgetRef = useRef(null);
