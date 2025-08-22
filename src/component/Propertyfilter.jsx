@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FilterButton } from './FilterButton'
+import { Filterbutton } from './Filterbutton'
 import { GoChevronDown } from "react-icons/go";
 import { Rangeslider } from './Rangeslider';
 import { Addfilterbutton } from './Addfilterbutton';
@@ -228,7 +228,7 @@ export default function Propertyfilter() {
                 Clear all
               </a>
             </div>
-            <FilterButton btname="1bhk" />
+            <Filterbutton btname="1bhk" />
             <div className="flow-root">
               {/* <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
                         <li className="py-3 sm:py-4">

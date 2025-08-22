@@ -1,6 +1,6 @@
 import { FaXmark } from "react-icons/fa6";
 
-export default function FilterButton(props) {
+export default function Filterbutton(props) {
   
   return (
     <div>

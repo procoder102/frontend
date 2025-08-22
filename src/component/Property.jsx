@@ -1,5 +1,5 @@
 import React from 'react'
-import { FilterButton } from './FilterButton'
+import { Filterbutton } from './Filterbutton'
 import { GoChevronDown } from "react-icons/go";
 import { Rangeslider } from './Rangeslider';
 import { Addfilterbutton } from './Addfilterbutton';
