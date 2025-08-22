@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
 export const Profileproperty = () => {
+   const [coverdParking,setCoverdParking] = useState(0);
+    const [uncoverdParking,setUncoverdParking] = useState(0);
+    const [noBedroom,setNoBedroom] = useState('');
+    const [noBalconies,setNoBalconies] = useState('');
+    const [noBathroom,setNoBathroom] = useState('');
+    const [ageProperty,setAgeProperty] = useState('');
+    const [ownership,setOwnership] = useState('');
   const noOfBedroom = [
     { name: 'one', title: 1 },
     { name: 'two', title: 2 },
@@ -91,11 +98,7 @@ export const Profileproperty = () => {
 
   const [choiseProperty,setChoiseProperty] = useState('underConcetraction');
 
-  const pricingDetails = [
-    {name:'All inclusive Price',label:'All inclusive Price'},
-    {name:'Tax and Govt. Charges excluded',label:'Tax and Govt. Charges excluded'},
-    {name:'Price Negotiable',label:'Price Negotiable'}
-  ]
+  
 
   const ownershipDetails = [
     {
@@ -126,7 +129,9 @@ export const Profileproperty = () => {
           <button
             type="button"
             key={index}
-            className="text-xs rounded-full bg-gray-100 p-3 mx-2"
+            name={item.name}
+            className={`${noBedroom === item.name ? "text-xs rounded-full bg-gray-100 p-3 mx-2 cursor-pointer" :"text-xs rounded-full border border-1 border-gray-300 p-3 mx-2 cursor-pointer"}`}
+            onClick={(e) => setNoBedroom(e.currentTarget.name)}
           >
             {item.title}
           </button>
@@ -139,7 +144,9 @@ export const Profileproperty = () => {
           <button
             type="button"
             key={index}
-            className="text-xs rounded-full bg-gray-100 p-3 mx-2"
+            name={item.name}
+           className={`${noBathroom === item.name ? "text-xs rounded-full bg-gray-100 p-3 mx-2 cursor-pointer" :"text-xs rounded-full border border-1 border-gray-300 p-3 mx-2 cursor-pointer"}`}
+            onClick={(e) => setNoBathroom(e.currentTarget.name)}
           >
             {item.title}
           </button>
@@ -152,7 +159,9 @@ export const Profileproperty = () => {
           <button
             type="button"
             key={index}
-            className="text-xs rounded-full bg-gray-100 p-3 mx-2"
+            name={item.name}
+           className={`${noBalconies === item.name ? "text-xs rounded-full bg-gray-100 p-3 mx-2 cursor-pointer" :"text-xs rounded-full border border-1 border-gray-300 p-3 mx-2 cursor-pointer"}`}
+            onClick={(e) => setNoBalconies(e.currentTarget.name)}
           >
             {item.title}
           </button>
@@ -366,7 +375,9 @@ export const Profileproperty = () => {
       <div className="flex">
       {availabilityStatus.map((item,index) => {
         return(
-          <button name={item.name} key={index} onClick={(e) => setChoiseProperty(e.currentTarget.name)} className='text-sm mx-2 text-gray-500 font-normal my-2 border p-2 rounded-full cursor-pointer border-1 border-gray-200'>{item.label}</button>
+          <button name={item.name} key={index} onClick={(e) => setChoiseProperty(e.currentTarget.name)} 
+           className={`${choiseProperty === item.name ? "text-sm mx-2 text-gray-500 font-normal my-2  p-2 rounded-full cursor-pointer bg-gray-100" :"text-sm mx-2 text-gray-500 font-normal my-2 border p-2 rounded-full cursor-pointer border-1 border-gray-200"}`}
+          >{item.label}</button>
         )
       })}
       </div>
@@ -375,14 +386,20 @@ export const Profileproperty = () => {
         <div className={`${choiseProperty === 'Ready to move' ? 'font-medium text-lg' : 'hidden'}`} >
       {ageOfProperty.map((item,index) => {
         return(
-          <button className='p-2 mx-2 text-sm font-normal border border-1 border-gray-500 rounded-full'>{item.label}</button>
+          <button
+          key={index}
+          name={item.name}
+          className={`${ageProperty === item.name ? 'p-2 mx-2 text-sm font-normal bg-gray-100 cursor-pointer rounded-full' :'cursor-pointer p-2 mx-2 text-sm font-normal border border-1 border-gray-300 rounded-full'}`}
+          onClick={(e) => setAgeProperty(e.currentTarget.name)}
+          >
+            {item.label}</button>
         )
       })}
       </div>
       
 <form class={`${choiseProperty === 'Under construction' ? 'w-full mx-auto' : 'hidden'}`}>
   <label for="countries" class="block mb-2  font-medium text-gray-900 dark:text-white">Possession By</label>
-  <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <select id="countries" class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <option selected>Expected by</option>
     {underConcetraction.map((item,index) => {
       return(
@@ -397,24 +414,35 @@ export const Profileproperty = () => {
       <div className="flex justify-around my-5">
       {ownershipDetails.map((item,index) => {
         return(
-          <button name={item.name} key={index} className='text-sm text-gray-500 font-normal  border p-2 rounded-full cursor-pointer border-1 border-gray-200'>{item.label}</button>
+          <button name={item.name} key={index} 
+          className={`${ownership === item.name ? 'text-sm text-gray-500 font-normal   p-2 rounded-full cursor-pointer bg-gray-100' :'text-sm text-gray-500 font-normal  border p-2 rounded-full cursor-pointer border-1 border-gray-200'}`}
+          onClick={(e) => setOwnership(e.currentTarget.name)}
+          >
+            {item.label}
+            </button>
         )
       })}
       </div>
-      <p className='font-medium text-lg'>Price Details</p>
-      <div className='flex '>
-        <input type='text' className='mx-2 outline-none border border-1 border-gray-200 my-4 px-4 py-2 w-40' placeholder='Expected Price' />
-        <input type='text' className='mx-2 outline-none border border-1 border-gray-200 my-4 px-4 py-2 w-30 text-xs' placeholder='Price per sq.ft' />
-        </div>
+      <h3 className='text-xl font-medium my-5'>Reserved Parking <span className="font-light text-sm text-gray-400">(Optional)</span></h3>
         <div className='flex flex-wrap my-5'>
-          {pricingDetails.map((item,index) =>{
-            return(
-              <div className='flex mb-4 item-center flex-wrap mx-2'>
-                <input id="default-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-    <label for="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">{item.label}</label>
-              </div>
-            )
-          })}
+            <div className='mx-3'>
+            <p className='font-light text-gray-400'>Covered Parking 
+                <div className="flex my-3">
+                <button disabled={coverdParking <= 0} className={`${coverdParking <= 0 ? 'flex items-center justify-center w-10 h-10 text-2xl font-light text-gray-200 border border-gray-200 rounded-full cursor-not-allowed' : 'flex items-center justify-center w-10 h-10 text-2xl font-light text-gray-500 border border-gray-400 rounded-full cursor-pointer'}`} onClick={() => {coverdParking <= 0 ? setCoverdParking(0) : setCoverdParking(prev => prev - 1)}}>-</button>
+                <p className='m-2'>{coverdParking}</p>
+                <button className="flex items-center justify-center w-10 h-10 text-2xl font-light text-gray-500 border border-gray-400 rounded-full cursor-pointer" onClick={() =>  setCoverdParking(prev =>prev + 1)}>+</button>
+                </div>
+                </p>
+                </div>
+                <div className='mx-3'>
+                    <p className='font-light text-gray-400'>Uncovered Parking 
+                <div className="flex my-3">
+                <button className={`${uncoverdParking <= 0 ? 'flex items-center justify-center w-10 h-10 text-2xl font-light text-gray-200 border border-gray-200 rounded-full cursor-not-allowed' : 'flex items-center justify-center w-10 h-10 text-2xl font-light text-gray-500 border border-gray-400 rounded-full cursor-pointer'}`} onClick={() => {uncoverdParking <= 0 ? setUncoverdParking(0) : setUncoverdParking(prev => prev - 1)}}>-</button>
+                <p className='m-2'>{uncoverdParking}</p>
+                <button className="flex items-center justify-center w-10 h-10 text-2xl font-light text-gray-500 border border-gray-400 rounded-full cursor-pointer" onClick={() =>  setUncoverdParking(prev =>prev + 1)}>+</button>
+                </div>
+                </p>
+                </div>
         </div>
 
         <h3 className='font-medium text-xl'>What makes your property unique</h3>

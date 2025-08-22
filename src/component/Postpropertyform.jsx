@@ -4,24 +4,51 @@ import { Locationbutton } from './Locationbutton'
 import { Profileproperty } from './Profileproperty'
 import { Photovideo } from './Photovideo'
 import { Anenimies } from './Anenimies'
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 export const Postpropertyform = () => {
    
    const [continueNO,setContinueNo] = useState(0);
-    const steps = [
+    const [steps, setSteps] = useState([
         { id: 1, label: "Basic Details", status: true,currentForm:Postbasicdetailsform },
         { id: 2, label: "Location Details", status: false,currentForm:Locationbutton },
         { id: 3, label: "Property Profile", status: false,currentForm:Profileproperty },
         { id: 4, label: "Photos,Videos&Voice-Over", status: false,currentForm:Photovideo },
         { id: 5, label: "Pricing & Others", status: false,currentForm:Anenimies }
-    ]
+    ])
 
      let FormComponent = steps[continueNO].currentForm;
+     function backButtonFun(){
+        setSteps(prevSteps =>
+      prevSteps.map((step, index) =>
+        index === continueNO  ? { ...step, status: false } : step
+      )
+    );
+       setContinueNo(prev => prev - 1)
+     }
+
+     function continueButton(){
+        console.log(steps.length);
+        
+        
+        if(continueNO < 4 ){
+            setSteps(prevSteps =>
+      prevSteps.map((step, index) =>
+        index === continueNO + 1 ? { ...step, status: true } : step
+      )
+    );
+            setContinueNo(prev => prev += 1)
+
+        }
+        else{
+            alert('You have Sussefully listed the property');
+        }
+     }
     return (
-        <div className='bg-[#d1dede]'>
-            <div className='max-w-4xl p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
-                <div className='flex justify-around'>
-                    <div className='w-[max-content] p-6 bg-[#d1dede] border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
+        <div className='bg-[#d1dede] min-h-screen'>
+            <div className='max-w-4xl min-h-screen p-6 this bg-white border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700'>
+                <div className='flex justify-around flex-col lg:flex-row'>
+                    <div className='w-[max-content] hidden lg:block h-[max-content] p-6 bg-[#d1dede] border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 sticky top-10'>
                         <div className='flex flex-col space-y-10'>
                             {steps.map((step, index) =>
                                 <div key={step.id} className='relative flex items-start'>
@@ -43,11 +70,11 @@ export const Postpropertyform = () => {
                             )}
                         </div>
                     </div>
-                     <div className='max-w-md'>
-                        <button type='button' className={`${continueNO < 1 ? 'hidden' : 'flex bg-gray-100 p-2 text-sm rounded-2xl my-5'}`} onClick={() => setContinueNo(prev => prev - 1)}>Back</button>
+                     <div className='max-w-md lg:w-[55vw] min-h-screen transition-all duration-500 ease-in-out '>
+                        <button type='button' className={`${continueNO < 1 ? 'hidden' : 'flex p-2 text-sm text-gray-500 font-bold rounded-2xl my-5 cursor-pointer'}`} onClick={backButtonFun}><span className='text-2xl'><IoIosArrowRoundBack /></span>Back</button>
                        <FormComponent />
-                                <button type="button" className="m-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => setContinueNo(prev => prev += 1)}>Continue</button>
 
+                                <button type="button" className="m-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 cursor-pointer" onClick={continueButton}>Continue</button>
                      </div>
                 </div>
             </div>

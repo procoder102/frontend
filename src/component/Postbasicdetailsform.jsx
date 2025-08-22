@@ -138,7 +138,7 @@ export const Postbasicdetailsform = () => {
                             <div className='flex my-3'>
                                 {lokingButton.map((item, index) => {
                                     return (
-                                        <button key={index} name={item.name} className={`${lookSelection === item.name ? 'bg-gray-100 border border-blue-500    font-normal text-gray-900  cursor-pointer px-3 rounded-full text-sm mx-1' : 'bg-white border border-gray-300 font-normal text-gray-500  cursor-pointer px-3 rounded-full text-sm mx-1'} ${item.name === 'pg' && selection === 'commercial' ? 'hidden' : 'block'}`} onClick={lookButton}>{item.title}</button>
+                                        <button key={index} name={item.name} className={`${lookSelection === item.name ? 'bg-gray-100     font-normal text-gray-900  cursor-pointer px-3 rounded-full text-sm mx-1' : 'bg-white border border-gray-300 font-normal text-gray-500  cursor-pointer px-3 rounded-full text-sm mx-1'} ${item.name === 'pg' && selection === 'commercial' ? 'hidden' : 'block'}`} onClick={lookButton}>{item.title}</button>
                                     )
                                 })}
                             </div>
@@ -149,14 +149,14 @@ export const Postbasicdetailsform = () => {
                                         <label for="default-radio-1" className="m-2 text-sm  text-gray-500 dark:text-gray-300">Residential </label>
                                     </div>
                                     <div className="flex items-center" onChange={resCom}>
-                                        <input checked={selection === "commercial"} disabled={lookSelection === 'pg'} id="default-radio-2" type="radio" value="commercial" name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " />
+                                        <input checked={selection === "commercial"} disabled={lookSelection === 'pg'} id="default-radio-2" type="radio" value="commercial" name="default-radio" className={`${lookSelection === 'pg' ? 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  cursor-not-allowed':'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 cursor-pointer'}` }/>
                                         <label for="default-radio-2" className="m-2 text-sm  text-gray-500 dark:text-gray-300">Commerical</label>
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap">
                                     {propertyTypes.map((item, index) => {
                                         return (
-                                            <button key={index} name={item.name} className={`${itsType === item.name ? 'bg-gray-100 border border-blue-300 font-normal text-gray-500  cursor-pointer px-2 py-1 m-1  rounded-full text-sm mx-1' : 'bg-white border border-gray-300 font-normal text-gray-500  cursor-pointer px-2 py-1 m-1  rounded-full text-sm mx-1'}`} onClick={redintalTypes} >{item.title}</button>
+                                            <button key={index} name={item.name} className={`${itsType === item.name ? 'bg-gray-100 font-normal text-gray-500  cursor-pointer px-2 py-1 m-1  rounded-full text-sm mx-1' : 'bg-white border border-gray-300 font-normal text-gray-500  cursor-pointer px-2 py-1 m-1  rounded-full text-sm mx-1'}`} onClick={redintalTypes} >{item.title}</button>
                                         )
                                     })}
                                 </div>
