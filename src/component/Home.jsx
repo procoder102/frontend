@@ -2,6 +2,7 @@ import React from 'react';
 import banner from '../Images/1366-banner-1.jpg';
 import Banner from './customcomponent/Banner';
 import Searchbox from './customcomponent/Searchbox';
+import Customcardcrousal from './customantdesign/Customcardcrousal';
  const Home = () => {
   return (
     <>
@@ -10,6 +11,9 @@ import Searchbox from './customcomponent/Searchbox';
       <div className='block lg:absolute  top-50 object-cover w-[-webkit-fill-available]'>
       <Searchbox />
       </div>
+    </div>
+    <div className='mt-20'>
+    <Customcardcrousal />
     </div>
     </>
   )
