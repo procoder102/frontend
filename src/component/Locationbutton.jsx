@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
-export const Locationbutton = () => {
+export const Locationbutton = ({setValidator}) => {
     const [query,setQuery] = useState('');
     const [results,setResults] = useState('');
     const [visable,setVisable] = useState(false);
@@ -29,7 +29,21 @@ export const Locationbutton = () => {
             }
     }
 
-    const [locality,setLocality] = useState('')
+    const [locality,setLocality] = useState('');
+
+      useEffect(() => {
+        if (setValidator) {
+          setValidator(validateForm);
+        }
+      }, [locality]);
+      
+      function validateForm(){
+        if(!locality){
+            alert("Enter your city name");
+            return false;
+        }
+        return true
+      }
 
     const handleSelect = (place) => {
         

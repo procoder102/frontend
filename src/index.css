@@ -68,6 +68,39 @@ h1 {
   line-height: 1.1;
 }
 
+.menu-btn{
+  font-weight: bold;
+  color: whitesmoke;
+  letter-spacing: 0.05rem;
+  background: #011638 !important;
+}
+
+.navBtn{
+  color: white !important;
+}
+
+.serchboxDropDown{
+  padding: 10px !important;
+  border: none;
+}
+.banerImage{
+  height: 20vw !important;
+}
+.menu-btn:hover{
+  background-color: transparent !important;
+  color: whitesmoke !important;
+  letter-spacing: 0.05rem;
+}
+
+.default-btn{
+  border: 1px solid !important;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, #F40076, #FF512F, #FF9966);
+}
+
+a{
+  color: white;
+}
 .webkitFillAvailable{
   width: -webkit-fill-available;
 }

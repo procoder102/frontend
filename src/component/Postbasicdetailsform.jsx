@@ -1,7 +1,8 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const Postbasicdetailsform = () => {
-     const lokingButton = [
+export const Postbasicdetailsform = ({ setValidator }) => {
+         const lokingButton = [
         { title: 'Sell', name: 'sell' },
         { title: 'Rent / Lease', name: 'rent' },
         { title: 'PG', name: 'pg' }
@@ -44,15 +45,18 @@ export const Postbasicdetailsform = () => {
             { title: 'Hospitality', name: 'hospitality' },
             { title: 'other', name: 'other' }
         ]
-        const [lookSelection, setLookSelection] = useState("sell");
+        const [lookSelection, setLookSelection] = useState("");
         const [selection, setSelection] = useState("");
         const [propertyTypes, setPropertyTypes] = useState(sell);
         const [itsType, setItsType] = useState('');
     
+        const dispatch = useDispatch();
+        const category = useSelector((state) => state.property.data.category);
+        const { data, errors } = useSelector((state) => state.property);
         function lookButton(e) {
             // console.log(e.currentTarget.name);
             setLookSelection(e.currentTarget.name)
-    
+              dispatch(updateField({ purpose: e.currentTarget.name }));
         }
     
     
@@ -115,7 +119,8 @@ export const Postbasicdetailsform = () => {
             setCommericalSpace([])
             setSelection(event.target.value);
             console.log("Selected:", event.target.value);
-    
+             dispatch(updateField({ category: event.target.value }))
+             console.log("Updated category:", category,selection);
         };
         // handle property type click
         function redintalTypes(event) {
@@ -123,18 +128,41 @@ export const Postbasicdetailsform = () => {
             console.log(commericalMap[name]);
     
             setItsType(name);
-    
+            dispatch(setError({ general: "Please fill all required fields" }));
             if (selection === "commercial") {
                 setSelectedMainType(name);
                 setCommericalSpace(commericalMap[name] || []);
             }
         }
-    
+
+
+  // Register validation with parent
+  useEffect(() => {
+    if (setValidator) {
+      setValidator(validateForm);
+    }
+  }, [lookSelection, selection,itsType,propertyTypes]);
+
+  function validateForm() {
+    if(!lookSelection){
+        alert("Please select What are you looking for");
+        return false;
+    }
+    if (!selection) {
+      alert("Please select Residential or Commercial!");
+      return false;
+    }
+    if(!itsType){
+        alert("Please select What kind of selection you are looking for")
+        return false;
+    }
+    return true;
+  }
+
   return (
     <>
-   
-                        <h3 className='text-2xl font-medium'>Welcome back kapil,<br />Fill out basic details</h3>
-                        <div className='my-5'><p className='font-medium '>I'm looking to</p>
+      <h3 className='text-2xl font-medium'>Welcome back kapil,<br />Fill out basic details</h3>
+      <div className='my-5'><p className='font-medium '>I'm looking to</p>
                             <div className='flex my-3'>
                                 {lokingButton.map((item, index) => {
                                     return (
@@ -183,6 +211,6 @@ export const Postbasicdetailsform = () => {
                                 </div>
                             </div>
                         </div>
-                        </>
-  )
-}
+    </>
+  );
+};

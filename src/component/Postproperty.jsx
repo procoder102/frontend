@@ -95,12 +95,12 @@ export const Postproperty = () => {
         <>
             <section className='m-10'>
                 <div className='flex'>
-                    <div className='w-[50vw]'>
+                    <div className='hidden lg:block lg:w-[50vw]'>
                         <h3 className='text-4xl font-bold'>Sell or Rent Property<br /> online faster with DSI.com</h3>
                         <img src={postPropery} alt='...' />
                     </div>
                     <div>
-                        <div className="w-[35vw] p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                        <div className="w-[-webkit-fill-available] lg:w-[35vw] p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
                             <h3 className='text-2xl font-semibold py-2'>Start posting your property,it's free</h3>
                             <h3 className='text-xs font-semibold py-2 px-1'>Add Basic details</h3>
                             <h4 className='font-semibold'>You're looking to...</h4>
